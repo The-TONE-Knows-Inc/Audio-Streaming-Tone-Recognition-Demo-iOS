@@ -1,0 +1,767 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		206C7FE2B12D10D49ED1CB7E /* Pods_ToneProtocolDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49A07857C3107C24060992AF /* Pods_ToneProtocolDemo.framework */; };
+		53391E0520CA543100B2D3DA /* ToneFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53391E0320CA542A00B2D3DA /* ToneFramework.framework */; };
+		53391E0620CA543100B2D3DA /* ToneFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 53391E0320CA542A00B2D3DA /* ToneFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		53391E0820CA9E1100B2D3DA /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53391E0720CA9E1100B2D3DA /* MenuViewController.swift */; };
+		53F049D920C90C0300370E1D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F049D820C90C0300370E1D /* AppDelegate.swift */; };
+		53F049DB20C90C0300370E1D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F049DA20C90C0300370E1D /* ViewController.swift */; };
+		53F049DE20C90C0300370E1D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53F049DC20C90C0300370E1D /* Main.storyboard */; };
+		53F049E020C90C0500370E1D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 53F049DF20C90C0500370E1D /* Assets.xcassets */; };
+		53F049E320C90C0500370E1D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53F049E120C90C0500370E1D /* LaunchScreen.storyboard */; };
+		53F049EE20C90C0500370E1D /* ToneProtocolDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F049ED20C90C0500370E1D /* ToneProtocolDemoTests.swift */; };
+		53F049F920C90C0500370E1D /* ToneProtocolDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F049F820C90C0500370E1D /* ToneProtocolDemoUITests.swift */; };
+		53F04A0920C913C300370E1D /* ToneListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F04A0820C913C300370E1D /* ToneListTableViewController.swift */; };
+		53F6DAF020C969B700C9C291 /* ToneActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F6DAEF20C969B700C9C291 /* ToneActionViewController.swift */; };
+		8BC6C7802ED93DF912C1F4D1 /* Pods_ToneProtocolDemoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9ECFAF332D81F788FB6BB2A /* Pods_ToneProtocolDemoTests.framework */; };
+		B1F8D9967F4F9B0E77509313 /* Pods_ToneProtocolDemoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9156BBF2D985F1C30A51B3DF /* Pods_ToneProtocolDemoUITests.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		53F049EA20C90C0500370E1D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 53F049CD20C90C0300370E1D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 53F049D420C90C0300370E1D;
+			remoteInfo = ToneProtocolDemo;
+		};
+		53F049F520C90C0500370E1D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 53F049CD20C90C0300370E1D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 53F049D420C90C0300370E1D;
+			remoteInfo = ToneProtocolDemo;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		53F04A0E20C920CF00370E1D /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				53391E0620CA543100B2D3DA /* ToneFramework.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		3EB62203786335FB96925670 /* Pods-ToneProtocolDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToneProtocolDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ToneProtocolDemo/Pods-ToneProtocolDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		49A07857C3107C24060992AF /* Pods_ToneProtocolDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ToneProtocolDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		53391E0320CA542A00B2D3DA /* ToneFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ToneFramework.framework; sourceTree = "<group>"; };
+		53391E0720CA9E1100B2D3DA /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		53F049D520C90C0300370E1D /* ToneProtocolDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToneProtocolDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		53F049D820C90C0300370E1D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		53F049DA20C90C0300370E1D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		53F049DD20C90C0300370E1D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		53F049DF20C90C0500370E1D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		53F049E220C90C0500370E1D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		53F049E420C90C0500370E1D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		53F049E920C90C0500370E1D /* ToneProtocolDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ToneProtocolDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		53F049ED20C90C0500370E1D /* ToneProtocolDemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToneProtocolDemoTests.swift; sourceTree = "<group>"; };
+		53F049EF20C90C0500370E1D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		53F049F420C90C0500370E1D /* ToneProtocolDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ToneProtocolDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		53F049F820C90C0500370E1D /* ToneProtocolDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToneProtocolDemoUITests.swift; sourceTree = "<group>"; };
+		53F049FA20C90C0500370E1D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		53F04A0820C913C300370E1D /* ToneListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToneListTableViewController.swift; sourceTree = "<group>"; };
+		53F6DAEF20C969B700C9C291 /* ToneActionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToneActionViewController.swift; sourceTree = "<group>"; };
+		7F74C74AFB5080D54B6EED1D /* Pods-ToneProtocolDemoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToneProtocolDemoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ToneProtocolDemoTests/Pods-ToneProtocolDemoTests.debug.xcconfig"; sourceTree = "<group>"; };
+		83970CE657C32CFEE4172295 /* Pods-ToneProtocolDemoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToneProtocolDemoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ToneProtocolDemoTests/Pods-ToneProtocolDemoTests.release.xcconfig"; sourceTree = "<group>"; };
+		9156BBF2D985F1C30A51B3DF /* Pods_ToneProtocolDemoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ToneProtocolDemoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B7257C9C3AC2AC582C480732 /* Pods-ToneProtocolDemoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToneProtocolDemoUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ToneProtocolDemoUITests/Pods-ToneProtocolDemoUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		B779E2CAEEDF2A981B45D27E /* Pods-ToneProtocolDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToneProtocolDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-ToneProtocolDemo/Pods-ToneProtocolDemo.release.xcconfig"; sourceTree = "<group>"; };
+		F40ABABF8383C8E27CE96210 /* Pods-ToneProtocolDemoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToneProtocolDemoUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ToneProtocolDemoUITests/Pods-ToneProtocolDemoUITests.release.xcconfig"; sourceTree = "<group>"; };
+		F9ECFAF332D81F788FB6BB2A /* Pods_ToneProtocolDemoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ToneProtocolDemoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		53F049D220C90C0300370E1D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				206C7FE2B12D10D49ED1CB7E /* Pods_ToneProtocolDemo.framework in Frameworks */,
+				53391E0520CA543100B2D3DA /* ToneFramework.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		53F049E620C90C0500370E1D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8BC6C7802ED93DF912C1F4D1 /* Pods_ToneProtocolDemoTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		53F049F120C90C0500370E1D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B1F8D9967F4F9B0E77509313 /* Pods_ToneProtocolDemoUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		53F049CC20C90C0300370E1D = {
+			isa = PBXGroup;
+			children = (
+				53F049D720C90C0300370E1D /* ToneProtocolDemo */,
+				53F049EC20C90C0500370E1D /* ToneProtocolDemoTests */,
+				53F049F720C90C0500370E1D /* ToneProtocolDemoUITests */,
+				53F049D620C90C0300370E1D /* Products */,
+				59CAF07518B3A532A10C077D /* Pods */,
+				9A6095DA7F82CF43533C1233 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		53F049D620C90C0300370E1D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				53F049D520C90C0300370E1D /* ToneProtocolDemo.app */,
+				53F049E920C90C0500370E1D /* ToneProtocolDemoTests.xctest */,
+				53F049F420C90C0500370E1D /* ToneProtocolDemoUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		53F049D720C90C0300370E1D /* ToneProtocolDemo */ = {
+			isa = PBXGroup;
+			children = (
+				53391E0320CA542A00B2D3DA /* ToneFramework.framework */,
+				53F049D820C90C0300370E1D /* AppDelegate.swift */,
+				53F049DA20C90C0300370E1D /* ViewController.swift */,
+				53F04A0820C913C300370E1D /* ToneListTableViewController.swift */,
+				53F6DAEF20C969B700C9C291 /* ToneActionViewController.swift */,
+				53391E0720CA9E1100B2D3DA /* MenuViewController.swift */,
+				53F049DC20C90C0300370E1D /* Main.storyboard */,
+				53F049DF20C90C0500370E1D /* Assets.xcassets */,
+				53F049E120C90C0500370E1D /* LaunchScreen.storyboard */,
+				53F049E420C90C0500370E1D /* Info.plist */,
+			);
+			path = ToneProtocolDemo;
+			sourceTree = "<group>";
+		};
+		53F049EC20C90C0500370E1D /* ToneProtocolDemoTests */ = {
+			isa = PBXGroup;
+			children = (
+				53F049ED20C90C0500370E1D /* ToneProtocolDemoTests.swift */,
+				53F049EF20C90C0500370E1D /* Info.plist */,
+			);
+			path = ToneProtocolDemoTests;
+			sourceTree = "<group>";
+		};
+		53F049F720C90C0500370E1D /* ToneProtocolDemoUITests */ = {
+			isa = PBXGroup;
+			children = (
+				53F049F820C90C0500370E1D /* ToneProtocolDemoUITests.swift */,
+				53F049FA20C90C0500370E1D /* Info.plist */,
+			);
+			path = ToneProtocolDemoUITests;
+			sourceTree = "<group>";
+		};
+		59CAF07518B3A532A10C077D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3EB62203786335FB96925670 /* Pods-ToneProtocolDemo.debug.xcconfig */,
+				B779E2CAEEDF2A981B45D27E /* Pods-ToneProtocolDemo.release.xcconfig */,
+				7F74C74AFB5080D54B6EED1D /* Pods-ToneProtocolDemoTests.debug.xcconfig */,
+				83970CE657C32CFEE4172295 /* Pods-ToneProtocolDemoTests.release.xcconfig */,
+				B7257C9C3AC2AC582C480732 /* Pods-ToneProtocolDemoUITests.debug.xcconfig */,
+				F40ABABF8383C8E27CE96210 /* Pods-ToneProtocolDemoUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		9A6095DA7F82CF43533C1233 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				49A07857C3107C24060992AF /* Pods_ToneProtocolDemo.framework */,
+				F9ECFAF332D81F788FB6BB2A /* Pods_ToneProtocolDemoTests.framework */,
+				9156BBF2D985F1C30A51B3DF /* Pods_ToneProtocolDemoUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		53F049D420C90C0300370E1D /* ToneProtocolDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 53F049FD20C90C0500370E1D /* Build configuration list for PBXNativeTarget "ToneProtocolDemo" */;
+			buildPhases = (
+				7B1041819C51CBE4B3CE2853 /* [CP] Check Pods Manifest.lock */,
+				53F049D120C90C0300370E1D /* Sources */,
+				53F049D220C90C0300370E1D /* Frameworks */,
+				53F049D320C90C0300370E1D /* Resources */,
+				53F04A0E20C920CF00370E1D /* Embed Frameworks */,
+				C4844DE8E7FF09ED7DEF6E11 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ToneProtocolDemo;
+			productName = ToneProtocolDemo;
+			productReference = 53F049D520C90C0300370E1D /* ToneProtocolDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		53F049E820C90C0500370E1D /* ToneProtocolDemoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 53F04A0020C90C0500370E1D /* Build configuration list for PBXNativeTarget "ToneProtocolDemoTests" */;
+			buildPhases = (
+				F394682500C1DF37727901A0 /* [CP] Check Pods Manifest.lock */,
+				53F049E520C90C0500370E1D /* Sources */,
+				53F049E620C90C0500370E1D /* Frameworks */,
+				53F049E720C90C0500370E1D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				53F049EB20C90C0500370E1D /* PBXTargetDependency */,
+			);
+			name = ToneProtocolDemoTests;
+			productName = ToneProtocolDemoTests;
+			productReference = 53F049E920C90C0500370E1D /* ToneProtocolDemoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		53F049F320C90C0500370E1D /* ToneProtocolDemoUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 53F04A0320C90C0500370E1D /* Build configuration list for PBXNativeTarget "ToneProtocolDemoUITests" */;
+			buildPhases = (
+				76D3CB3D94A42032BBE78655 /* [CP] Check Pods Manifest.lock */,
+				53F049F020C90C0500370E1D /* Sources */,
+				53F049F120C90C0500370E1D /* Frameworks */,
+				53F049F220C90C0500370E1D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				53F049F620C90C0500370E1D /* PBXTargetDependency */,
+			);
+			name = ToneProtocolDemoUITests;
+			productName = ToneProtocolDemoUITests;
+			productReference = 53F049F420C90C0500370E1D /* ToneProtocolDemoUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		53F049CD20C90C0300370E1D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0930;
+				LastUpgradeCheck = 0930;
+				ORGANIZATIONNAME = "Shalaka Saraf";
+				TargetAttributes = {
+					53F049D420C90C0300370E1D = {
+						CreatedOnToolsVersion = 9.3;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
+					};
+					53F049E820C90C0500370E1D = {
+						CreatedOnToolsVersion = 9.3;
+						TestTargetID = 53F049D420C90C0300370E1D;
+					};
+					53F049F320C90C0500370E1D = {
+						CreatedOnToolsVersion = 9.3;
+						TestTargetID = 53F049D420C90C0300370E1D;
+					};
+				};
+			};
+			buildConfigurationList = 53F049D020C90C0300370E1D /* Build configuration list for PBXProject "ToneProtocolDemo" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 53F049CC20C90C0300370E1D;
+			productRefGroup = 53F049D620C90C0300370E1D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				53F049D420C90C0300370E1D /* ToneProtocolDemo */,
+				53F049E820C90C0500370E1D /* ToneProtocolDemoTests */,
+				53F049F320C90C0500370E1D /* ToneProtocolDemoUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		53F049D320C90C0300370E1D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				53F049E320C90C0500370E1D /* LaunchScreen.storyboard in Resources */,
+				53F049E020C90C0500370E1D /* Assets.xcassets in Resources */,
+				53F049DE20C90C0300370E1D /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		53F049E720C90C0500370E1D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		53F049F220C90C0500370E1D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		76D3CB3D94A42032BBE78655 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ToneProtocolDemoUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7B1041819C51CBE4B3CE2853 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ToneProtocolDemo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C4844DE8E7FF09ED7DEF6E11 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-ToneProtocolDemo/Pods-ToneProtocolDemo-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SlideMenuControllerSwift/SlideMenuControllerSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftIcons/SwiftIcons.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SlideMenuControllerSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftIcons.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ToneProtocolDemo/Pods-ToneProtocolDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F394682500C1DF37727901A0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ToneProtocolDemoTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		53F049D120C90C0300370E1D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				53F6DAF020C969B700C9C291 /* ToneActionViewController.swift in Sources */,
+				53391E0820CA9E1100B2D3DA /* MenuViewController.swift in Sources */,
+				53F04A0920C913C300370E1D /* ToneListTableViewController.swift in Sources */,
+				53F049DB20C90C0300370E1D /* ViewController.swift in Sources */,
+				53F049D920C90C0300370E1D /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		53F049E520C90C0500370E1D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				53F049EE20C90C0500370E1D /* ToneProtocolDemoTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		53F049F020C90C0500370E1D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				53F049F920C90C0500370E1D /* ToneProtocolDemoUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		53F049EB20C90C0500370E1D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 53F049D420C90C0300370E1D /* ToneProtocolDemo */;
+			targetProxy = 53F049EA20C90C0500370E1D /* PBXContainerItemProxy */;
+		};
+		53F049F620C90C0500370E1D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 53F049D420C90C0300370E1D /* ToneProtocolDemo */;
+			targetProxy = 53F049F520C90C0500370E1D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		53F049DC20C90C0300370E1D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				53F049DD20C90C0300370E1D /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		53F049E120C90C0500370E1D /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				53F049E220C90C0500370E1D /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		53F049FB20C90C0500370E1D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CFLAGS = "";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		53F049FC20C90C0500370E1D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_CFLAGS = "";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		53F049FE20C90C0500370E1D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3EB62203786335FB96925670 /* Pods-ToneProtocolDemo.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = H83V3MS435;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ToneProtocolDemo",
+				);
+				INFOPLIST_FILE = ToneProtocolDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.tonedemo.automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		53F049FF20C90C0500370E1D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B779E2CAEEDF2A981B45D27E /* Pods-ToneProtocolDemo.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = H83V3MS435;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ToneProtocolDemo",
+				);
+				INFOPLIST_FILE = ToneProtocolDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.tonedemo.automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		53F04A0120C90C0500370E1D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7F74C74AFB5080D54B6EED1D /* Pods-ToneProtocolDemoTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3DV85RL7V3;
+				INFOPLIST_FILE = ToneProtocolDemoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.creativecapsule.projects.ToneProtocolDemoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ToneProtocolDemo.app/ToneProtocolDemo";
+			};
+			name = Debug;
+		};
+		53F04A0220C90C0500370E1D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 83970CE657C32CFEE4172295 /* Pods-ToneProtocolDemoTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3DV85RL7V3;
+				INFOPLIST_FILE = ToneProtocolDemoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.creativecapsule.projects.ToneProtocolDemoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ToneProtocolDemo.app/ToneProtocolDemo";
+			};
+			name = Release;
+		};
+		53F04A0420C90C0500370E1D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B7257C9C3AC2AC582C480732 /* Pods-ToneProtocolDemoUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3DV85RL7V3;
+				INFOPLIST_FILE = ToneProtocolDemoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.creativecapsule.projects.ToneProtocolDemoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = ToneProtocolDemo;
+			};
+			name = Debug;
+		};
+		53F04A0520C90C0500370E1D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F40ABABF8383C8E27CE96210 /* Pods-ToneProtocolDemoUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3DV85RL7V3;
+				INFOPLIST_FILE = ToneProtocolDemoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.creativecapsule.projects.ToneProtocolDemoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = ToneProtocolDemo;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		53F049D020C90C0300370E1D /* Build configuration list for PBXProject "ToneProtocolDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				53F049FB20C90C0500370E1D /* Debug */,
+				53F049FC20C90C0500370E1D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		53F049FD20C90C0500370E1D /* Build configuration list for PBXNativeTarget "ToneProtocolDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				53F049FE20C90C0500370E1D /* Debug */,
+				53F049FF20C90C0500370E1D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		53F04A0020C90C0500370E1D /* Build configuration list for PBXNativeTarget "ToneProtocolDemoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				53F04A0120C90C0500370E1D /* Debug */,
+				53F04A0220C90C0500370E1D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		53F04A0320C90C0500370E1D /* Build configuration list for PBXNativeTarget "ToneProtocolDemoUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				53F04A0420C90C0500370E1D /* Debug */,
+				53F04A0520C90C0500370E1D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 53F049CD20C90C0300370E1D /* Project object */;
+}

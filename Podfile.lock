@@ -1,0 +1,20 @@
+PODS:
+  - SlideMenuControllerSwift (4.0.0)
+  - SwiftIcons (2.0.1)
+
+DEPENDENCIES:
+  - SlideMenuControllerSwift
+  - SwiftIcons (~> 2.0.1)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - SlideMenuControllerSwift
+    - SwiftIcons
+
+SPEC CHECKSUMS:
+  SlideMenuControllerSwift: 021d6318201c53d4d4d3710517d43d6c556c7dd0
+  SwiftIcons: e475a56ae2c2da40672dbf16061ca5dd5cee7dbb
+
+PODFILE CHECKSUM: de1967f0f820396be21f8bdc10836ae1d6a27965
+
+COCOAPODS: 1.5.2

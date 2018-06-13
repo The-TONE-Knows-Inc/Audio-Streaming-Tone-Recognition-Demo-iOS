@@ -1,0 +1,6 @@
+framework module ToneFramework {
+  umbrella header "ToneFramework.h"
+
+  export *
+  module * { export * }
+}
