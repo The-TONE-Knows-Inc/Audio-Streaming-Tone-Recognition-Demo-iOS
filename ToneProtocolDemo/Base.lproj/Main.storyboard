@@ -19,7 +19,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home_screen_background" translatesAutoresizingMaskIntoConstraints="NO" id="LME-iP-DmH">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="HomeScreenBackground" translatesAutoresizingMaskIntoConstraints="NO" id="LME-iP-DmH">
                                 <rect key="frame" x="0.0" y="64" width="375" height="667"/>
                             </imageView>
                         </subviews>
@@ -249,7 +249,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="home_screen_background" width="360" height="640"/>
+        <image name="HomeScreenBackground" width="360" height="640"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="3py-pv-zPL"/>
