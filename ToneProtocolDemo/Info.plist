@@ -57,6 +57,6 @@
 	<key>TONE_PROTOCOL_CLIENT_NAME</key>
 	<string>100250</string>
 	<key>TONE_PROTOCOL_HOST_NAME</key>
-	<string>http://www.brodywebdesign.com/tone/api/api</string>
+	<string>http://demo.tonedashboard.com/tone/api/api</string>
 </dict>
 </plist>
