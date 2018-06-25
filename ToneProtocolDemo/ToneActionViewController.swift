@@ -25,13 +25,14 @@ class ToneActionViewController: UIViewController, UIWebViewDelegate {
         self.toneActionWebView.delegate = self
         self.toneActionWebView.scalesPageToFit = true
         self.toneActionWebView.loadRequest(request)
-    }
-    
-    func webViewDidStartLoad(_ webView: UIWebView) {
         spinner = UIViewController.displaySpinner(onView: self.view)
     }
     
     func webViewDidFinishLoad(_ webView: UIWebView) {
+        UIViewController.removeSpinner(spinner: spinner)
+    }
+    
+    func webView(_ webView: UIWebView, didFailLoadWithError error: Error) {
         UIViewController.removeSpinner(spinner: spinner)
     }
     
