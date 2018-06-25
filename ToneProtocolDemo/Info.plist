@@ -29,6 +29,10 @@
 	<string>Allow to use Location</string>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>Allow to use Microphone</string>
+	<key>TONE_PROTOCOL_CLIENT_NAME</key>
+	<string>100250</string>
+	<key>TONE_PROTOCOL_HOST_NAME</key>
+	<string>https://demo.tonedashboard.com/tone/api/api</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>audio</string>
@@ -54,9 +58,5 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-	<key>TONE_PROTOCOL_CLIENT_NAME</key>
-	<string>100250</string>
-	<key>TONE_PROTOCOL_HOST_NAME</key>
-	<string>http://demo.tonedashboard.com/tone/api/api</string>
 </dict>
 </plist>
