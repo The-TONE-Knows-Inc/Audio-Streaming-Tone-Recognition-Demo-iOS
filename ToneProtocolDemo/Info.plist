@@ -32,7 +32,7 @@
 	<key>NSMicrophoneUsageDescription</key>
 	<string>Allow to use Microphone</string>
 	<key>TONE_PROTOCOL_CLIENT_NAME</key>
-	<string>100250</string>
+	<string>100228</string>
 	<key>TONE_PROTOCOL_HOST_NAME</key>
 	<string>https://demo.tonedashboard.com/tone/api/api</string>
 	<key>UIBackgroundModes</key>
