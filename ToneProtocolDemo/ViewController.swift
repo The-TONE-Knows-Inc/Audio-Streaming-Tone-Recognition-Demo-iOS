@@ -22,8 +22,23 @@ class ViewController: UIViewController, LGToneManagerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationController?.navigationBar.barTintColor = UIColor.black
+        
         // Sets menu icon
-        self.navigationItem.leftBarButtonItem?.setIcon(icon: .fontAwesome(.bars), iconSize: 25)
+        //self.navigationItem.leftBarButtonItem?.setIcon(icon: .fontAwesome(.bars), iconSize: 25, color: UIColor.white)
+        
+        //create a new button
+        let button = UIButton.init(type: .custom)
+        //set image for button
+        button.setImage(UIImage(named: "icon_menu.png"), for: UIControlState.normal)
+        //add function for button
+        button.addTarget(self, action: #selector(ViewController.didPressMenuButton), for: UIControlEvents.touchUpInside)
+        //set frame
+        button.frame = CGRect(x: 0, y: 0, width: 25, height: 25)
+        
+        let barButton = UIBarButtonItem(customView: button)
+        //assign button to navigationbar
+        self.navigationItem.leftBarButtonItem = barButton
         
         // Tone Manager initialization
         initToneManager()
