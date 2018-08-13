@@ -62,6 +62,9 @@
                                         <rect key="frame" x="100.5" y="0.0" width="101" height="64.5"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="24" maxY="0.0"/>
                                         <state key="normal" image="play"/>
+                                        <connections>
+                                            <action selector="playPauseButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Fa1-AR-bFT"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GwD-Ed-JEK">
                                         <rect key="frame" x="201.5" y="0.0" width="100.5" height="64.5"/>

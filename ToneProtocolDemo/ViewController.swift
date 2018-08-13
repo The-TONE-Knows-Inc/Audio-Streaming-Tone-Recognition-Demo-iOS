@@ -19,6 +19,13 @@ class ViewController: UIViewController, LGToneManagerDelegate {
     let kClientName: String = "TONE_PROTOCOL_CLIENT_NAME"
     let kHostName: String = "TONE_PROTOCOL_HOST_NAME"
     
+    enum PlayerState {
+        case playing
+        case stopped
+    }
+    
+    var playerState = PlayerState.stopped
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -79,6 +86,16 @@ class ViewController: UIViewController, LGToneManagerDelegate {
     func notificationTapped() {
         // Performs an action when notification is tapped
         print("Notfication tapped")
+    }
+    
+    @IBAction func playPauseButtonTapped(_ sender: UIButton) {
+        if playerState == .playing{
+            playerState = .stopped
+            sender.setImage(UIImage(named: "play"), for: UIControlState.normal)
+        }else{
+            playerState = .playing
+            sender.setImage(UIImage(named: "stop"), for: UIControlState.normal)
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
