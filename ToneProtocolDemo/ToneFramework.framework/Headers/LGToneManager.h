@@ -81,13 +81,6 @@
 - (void)stop;
 
 /**
- *  Process the given LGAction
- *
- *  @param action the LGAction object
- */
-- (void)processAction:(LGAction*)action;
-
-/**
  *  Get all the actions in the cache that maybe missed by client
  *
  *  @return the array of all recognized actions

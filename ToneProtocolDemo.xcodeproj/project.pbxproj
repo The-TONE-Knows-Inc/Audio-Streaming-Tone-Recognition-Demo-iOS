@@ -9,9 +9,9 @@
 /* Begin PBXBuildFile section */
 		206C7FE2B12D10D49ED1CB7E /* Pods_ToneProtocolDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49A07857C3107C24060992AF /* Pods_ToneProtocolDemo.framework */; };
 		53391E0820CA9E1100B2D3DA /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53391E0720CA9E1100B2D3DA /* MenuViewController.swift */; };
-		53B18463211C74C1009F98B9 /* ToneFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53B18462211C74C1009F98B9 /* ToneFramework.framework */; };
-		53B18464211C74C6009F98B9 /* ToneFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53B18462211C74C1009F98B9 /* ToneFramework.framework */; };
-		53B18465211C74C7009F98B9 /* ToneFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 53B18462211C74C1009F98B9 /* ToneFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5355DDF22121BFFF001A689F /* ToneFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5355DDF12121BFFF001A689F /* ToneFramework.framework */; };
+		5355DDF32121C004001A689F /* ToneFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5355DDF12121BFFF001A689F /* ToneFramework.framework */; };
+		5355DDF42121C004001A689F /* ToneFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5355DDF12121BFFF001A689F /* ToneFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		53F049D920C90C0300370E1D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F049D820C90C0300370E1D /* AppDelegate.swift */; };
 		53F049DB20C90C0300370E1D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F049DA20C90C0300370E1D /* ViewController.swift */; };
 		53F049DE20C90C0300370E1D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53F049DC20C90C0300370E1D /* Main.storyboard */; };
@@ -49,7 +49,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				53B18465211C74C7009F98B9 /* ToneFramework.framework in Embed Frameworks */,
+				5355DDF42121C004001A689F /* ToneFramework.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -60,7 +60,7 @@
 		3EB62203786335FB96925670 /* Pods-ToneProtocolDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToneProtocolDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ToneProtocolDemo/Pods-ToneProtocolDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		49A07857C3107C24060992AF /* Pods_ToneProtocolDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ToneProtocolDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		53391E0720CA9E1100B2D3DA /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
-		53B18462211C74C1009F98B9 /* ToneFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ToneFramework.framework; sourceTree = "<group>"; };
+		5355DDF12121BFFF001A689F /* ToneFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ToneFramework.framework; sourceTree = "<group>"; };
 		53F049D520C90C0300370E1D /* ToneProtocolDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToneProtocolDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		53F049D820C90C0300370E1D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		53F049DA20C90C0300370E1D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -91,8 +91,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				206C7FE2B12D10D49ED1CB7E /* Pods_ToneProtocolDemo.framework in Frameworks */,
-				53B18464211C74C6009F98B9 /* ToneFramework.framework in Frameworks */,
-				53B18463211C74C1009F98B9 /* ToneFramework.framework in Frameworks */,
+				5355DDF32121C004001A689F /* ToneFramework.framework in Frameworks */,
+				5355DDF22121BFFF001A689F /* ToneFramework.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -140,7 +140,7 @@
 		53F049D720C90C0300370E1D /* ToneProtocolDemo */ = {
 			isa = PBXGroup;
 			children = (
-				53B18462211C74C1009F98B9 /* ToneFramework.framework */,
+				5355DDF12121BFFF001A689F /* ToneFramework.framework */,
 				53F049D820C90C0300370E1D /* AppDelegate.swift */,
 				53F049DA20C90C0300370E1D /* ViewController.swift */,
 				53F04A0820C913C300370E1D /* ToneListTableViewController.swift */,
