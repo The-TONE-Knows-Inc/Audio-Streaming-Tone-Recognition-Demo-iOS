@@ -25,7 +25,9 @@ class ToneActionViewController: UIViewController, UIWebViewDelegate {
         self.toneActionWebView.delegate = self
         self.toneActionWebView.scalesPageToFit = true
         self.toneActionWebView.loadRequest(request)
-        spinner = UIViewController.displaySpinner(onView: self.view)
+        if action.actionType != LGActionType.actionTypeEmail {
+            spinner = UIViewController.displaySpinner(onView: self.view)
+        }
     }
     
     func webViewDidFinishLoad(_ webView: UIWebView) {

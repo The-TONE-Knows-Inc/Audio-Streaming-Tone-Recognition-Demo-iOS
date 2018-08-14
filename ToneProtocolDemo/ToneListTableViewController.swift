@@ -49,6 +49,8 @@ class ToneListTableViewController: UITableViewController {
         }
         else if action.actionType == LGActionType.actionTypeUrl {
             cell.actionLinkText.text = "Open Link"
+        }else if action.actionType == LGActionType.actionTypeEmail {
+            cell.actionLinkText.text = "Open Email"
         }
         return cell
     }
