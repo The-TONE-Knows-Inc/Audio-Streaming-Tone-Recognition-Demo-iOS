@@ -18,13 +18,24 @@ class ViewController: UIViewController, LGToneManagerDelegate {
     let kMainToneActionSegue = "HomeToneActionSegue"
     let kClientName: String = "TONE_PROTOCOL_CLIENT_NAME"
     let kHostName: String = "TONE_PROTOCOL_HOST_NAME"
+    var player: AVPlayer?
+    let defaultFeedURL = URL(string: "http://192.168.10.21:8888/tone/AirKast_SubwayRadio_15K_XXXX_ZZZZ_R22_W_PreRoll_44.1k.mp3")
+    
+    @IBOutlet weak var buttonPlayPause: UIButton!
     
     enum PlayerState {
         case playing
         case stopped
     }
     
+    enum AudioReceiverType {
+        case mic
+        case audioStream
+    }
+    
     var playerState = PlayerState.stopped
+    let audioReceiverType = AudioReceiverType.audioStream
+    var loopAudio: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,6 +72,56 @@ class ViewController: UIViewController, LGToneManagerDelegate {
         LGToneManager.shared().configureManagerClientName(clientName, hostName: hostName)
     }
     
+    func playAudio(url: URL){
+        if(audioReceiverType == .audioStream){
+            //LGToneManager prepares the player instance by adding tap to it to recognise the tones directly using audio stream buffer
+            LGToneManager.shared().prepareAVPlayer(for: url, onPlayerReady: { (avPlayer, error) in
+                if let _ = avPlayer{
+                    self.player = avPlayer
+                    self.player?.play()
+                    
+                    NotificationCenter.default.addObserver(forName: .AVPlayerItemDidPlayToEndTime, object: self.player?.currentItem, queue: .main) { _ in
+                        if(self.loopAudio){ //play again from start
+                            self.player?.seek(to: kCMTimeZero)
+                            self.player?.play()
+                        }else{ //stop audio
+                            self.pauseAudio()
+                        }
+                    }
+                    
+                }
+            })
+        }else{ //audioReceiverType == .mic
+            //streaming audio file and starting to listen through the mic in viewWillAppear
+            let playerItem:AVPlayerItem = AVPlayerItem(url: url)
+            self.player = AVPlayer(playerItem: playerItem)
+            self.player?.play()
+            
+            if(self.loopAudio){
+                NotificationCenter.default.addObserver(forName: .AVPlayerItemDidPlayToEndTime, object: self.player?.currentItem, queue: .main) { _ in
+                    self.player?.seek(to: kCMTimeZero)
+                    self.player?.play()
+                }
+            }
+        }
+    }
+    
+    func pauseAudio(){
+        playerState = .stopped
+        buttonPlayPause.setImage(UIImage(named: "play"), for: UIControlState.normal)
+        self.player?.pause()
+    }
+    
+    @IBAction func playPauseButtonTapped(_ sender: UIButton) {
+        if playerState == .playing{ //Tapped stop/pause button
+            pauseAudio()
+        }else{ //Tapped play button
+            playerState = .playing
+            sender.setImage(UIImage(named: "stop"), for: UIControlState.normal)
+            playAudio(url: defaultFeedURL!)
+        }
+    }
+    
     @IBAction func didPressMenuButton(_ sender: UIBarButtonItem) {
         slideMenuController()?.openLeft()
     }
@@ -68,7 +129,9 @@ class ViewController: UIViewController, LGToneManagerDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         // Starts recording and listening for tone
-        LGToneManager.shared().start()
+        if(audioReceiverType == AudioReceiverType.mic){
+            LGToneManager.shared().start()
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -86,16 +149,6 @@ class ViewController: UIViewController, LGToneManagerDelegate {
     func notificationTapped() {
         // Performs an action when notification is tapped
         print("Notfication tapped")
-    }
-    
-    @IBAction func playPauseButtonTapped(_ sender: UIButton) {
-        if playerState == .playing{
-            playerState = .stopped
-            sender.setImage(UIImage(named: "play"), for: UIControlState.normal)
-        }else{
-            playerState = .playing
-            sender.setImage(UIImage(named: "stop"), for: UIControlState.normal)
-        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

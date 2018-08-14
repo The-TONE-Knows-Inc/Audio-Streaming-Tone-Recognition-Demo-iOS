@@ -130,6 +130,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="buttonPlayPause" destination="E37-hU-tLQ" id="tMQ-Of-nvU"/>
                         <segue destination="X3A-xn-bDj" kind="presentation" identifier="HomeToneActionSegue" id="3py-pv-zPL"/>
                     </connections>
                 </viewController>
