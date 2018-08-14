@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import "LGAction.h"
+#import <AVFoundation/AVFoundation.h>
 
 @protocol LGToneManagerDelegate <NSObject>
 - (void)actionListUpdated:(NSArray *)actions;
@@ -22,6 +23,11 @@
  *  @return the singleton instance
  */
 + (instancetype)sharedManager;
+
+/**
+ *  Block to return AVPlayer instance when it is ready
+ */
+typedef void (^OnPlayerReadyBlock)(AVPlayer*, NSError *);
 
 /**
  *  This method should be called in the AppDelegate.m under 
@@ -52,6 +58,14 @@
 - (void)configureManagerClientName:(NSString*)clientName hostName:(NSString*)hostName;
 
 /**
+ *  Prepare AVPlayer by initialising it with the passed URL and adding tap to it to recognise tones from the played audio stream
+ *
+ *  @param url Remote audio resource URL
+ *  @param onPlayerReady callback block that returns AVPlayer intance when ready.
+ */
+- (void) prepareAVPlayerForURL:(NSURL*)url onPlayerReady:(OnPlayerReadyBlock)playerReady;
+
+/**
  *  if set to YES and when a notification is created about an action while app is in background, The framework will process
  *  the action, if set to false, the client will be notified by LGToneManagerDelegate.notificationTapped
  *
@@ -79,13 +93,6 @@
  *  Stop the tone recognition
  */
 - (void)stop;
-
-/**
- *  Process the given LGAction
- *
- *  @param action the LGAction object
- */
-- (void)processAction:(LGAction*)action;
 
 /**
  *  Get all the actions in the cache that maybe missed by client
