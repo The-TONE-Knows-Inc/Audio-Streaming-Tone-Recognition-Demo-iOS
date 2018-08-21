@@ -58,7 +58,13 @@ class ViewController: UIViewController, LGToneManagerDelegate {
     func actionListUpdated(_ actions: [Any]!) {
         // Moves to ToneActionViewController where it displays the image in URL
         sortedActions = actions as NSArray
-        self.performSegue(withIdentifier: "HomeToneActionSegue", sender: self)
+        if self.presentedViewController is ToneActionViewController {
+            let action = sortedActions[0] as! LGAction
+            (self.presentedViewController as! ToneActionViewController).loadUrl(action: action)
+        }
+        else {
+            self.performSegue(withIdentifier: "HomeToneActionSegue", sender: self)
+        }
     }
     
     func notificationTapped() {

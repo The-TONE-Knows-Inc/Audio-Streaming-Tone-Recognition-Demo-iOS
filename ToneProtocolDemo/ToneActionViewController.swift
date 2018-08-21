@@ -10,7 +10,7 @@ import UIKit
 import ToneFramework
 
 class ToneActionViewController: UIViewController, UIWebViewDelegate {
-    
+
     @IBOutlet weak var toneActionWebView: UIWebView!
     var action: LGAction = LGAction()
     
@@ -18,16 +18,7 @@ class ToneActionViewController: UIViewController, UIWebViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Loads url in webview
-        let url = URL(string: action.actionURL)
-        let request = URLRequest(url: url! as URL)
-        self.toneActionWebView.delegate = self
-        self.toneActionWebView.scalesPageToFit = true
-        self.toneActionWebView.loadRequest(request)
-        if action.actionType != LGActionType.actionTypeEmail {
-            spinner = UIViewController.displaySpinner(onView: self.view)
-        }
+        loadUrl(action: action)
     }
     
     func webViewDidFinishLoad(_ webView: UIWebView) {
@@ -42,4 +33,15 @@ class ToneActionViewController: UIViewController, UIWebViewDelegate {
         self.dismiss(animated: true, completion: nil)
     }
     
+    func loadUrl(action : LGAction) {
+        // Loads url in webview
+        let url = URL(string: action.actionURL)
+        let request = URLRequest(url: url! as URL)
+        self.toneActionWebView.delegate = self
+        self.toneActionWebView.scalesPageToFit = true
+        self.toneActionWebView.loadRequest(request)
+        if action.actionType != LGActionType.actionTypeEmail {
+            spinner = UIViewController.displaySpinner(onView: self.view)
+        }
+    }
 }
