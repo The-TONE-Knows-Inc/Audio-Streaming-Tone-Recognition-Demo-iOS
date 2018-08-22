@@ -14,7 +14,7 @@ class ToneActionViewController: UIViewController, UIWebViewDelegate {
     @IBOutlet weak var toneActionWebView: UIWebView!
     var action: LGAction = LGAction()
     
-    var spinner: UIView = UIView()
+    var spinner: UIView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,11 +22,17 @@ class ToneActionViewController: UIViewController, UIWebViewDelegate {
     }
     
     func webViewDidFinishLoad(_ webView: UIWebView) {
-        UIViewController.removeSpinner(spinner: spinner)
+        if let _ = spinner {
+            UIViewController.removeSpinner(spinner: spinner!)
+            spinner = nil
+        }
     }
     
     func webView(_ webView: UIWebView, didFailLoadWithError error: Error) {
-        UIViewController.removeSpinner(spinner: spinner)
+        if let _ = spinner {
+            UIViewController.removeSpinner(spinner: spinner!)
+            spinner = nil
+        }
     }
     
     @IBAction func didPressCloseButton(_ sender: UIButton) {
@@ -41,7 +47,9 @@ class ToneActionViewController: UIViewController, UIWebViewDelegate {
         self.toneActionWebView.scalesPageToFit = true
         self.toneActionWebView.loadRequest(request)
         if action.actionType != LGActionType.actionTypeEmail {
-            spinner = UIViewController.displaySpinner(onView: self.view)
+            if spinner == nil {
+                spinner = UIViewController.displaySpinner(onView: self.view)
+            }
         }
     }
 }
