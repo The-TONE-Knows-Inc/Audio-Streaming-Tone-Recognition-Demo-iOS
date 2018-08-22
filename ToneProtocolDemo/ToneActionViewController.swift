@@ -12,27 +12,31 @@ import ToneFramework
 class ToneActionViewController: UIViewController, UIWebViewDelegate {
 
     @IBOutlet weak var toneActionWebView: UIWebView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var closeButton: UIButton!
+    @IBOutlet weak var spinnerView: UIView!
     var action: LGAction = LGAction()
-    
-    var spinner: UIView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        toneActionWebView.delegate = self
+        activityIndicator.activityIndicatorViewStyle = .gray
         loadUrl(action: action)
     }
     
+    func webViewDidStartLoad(_ webView: UIWebView) {
+        self.activityIndicator.startAnimating()
+        self.activityIndicator.isHidden = false
+        self.spinnerView.isHidden = false
+        self.closeButton.isEnabled = false
+    }
+    
     func webViewDidFinishLoad(_ webView: UIWebView) {
-        if let _ = spinner {
-            UIViewController.removeSpinner(spinner: spinner!)
-            spinner = nil
-        }
+        stopLoader()
     }
     
     func webView(_ webView: UIWebView, didFailLoadWithError error: Error) {
-        if let _ = spinner {
-            UIViewController.removeSpinner(spinner: spinner!)
-            spinner = nil
-        }
+        stopLoader()
     }
     
     @IBAction func didPressCloseButton(_ sender: UIButton) {
@@ -45,11 +49,21 @@ class ToneActionViewController: UIViewController, UIWebViewDelegate {
         let request = URLRequest(url: url! as URL)
         self.toneActionWebView.delegate = self
         self.toneActionWebView.scalesPageToFit = true
+        stopLoadingRequest()
         self.toneActionWebView.loadRequest(request)
-        if action.actionType != LGActionType.actionTypeEmail {
-            if spinner == nil {
-                spinner = UIViewController.displaySpinner(onView: self.view)
-            }
+    }
+    
+    func stopLoadingRequest() {
+        if self.toneActionWebView.isLoading {
+            self.toneActionWebView.stopLoading()
+            stopLoader()
         }
+    }
+    
+    func stopLoader(){
+        activityIndicator.stopAnimating()
+        self.activityIndicator.isHidden = true
+        self.spinnerView.isHidden = true
+        self.closeButton.isEnabled = true
     }
 }
