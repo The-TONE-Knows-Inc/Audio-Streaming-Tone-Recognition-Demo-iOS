@@ -32,11 +32,11 @@ class ToneActionViewController: UIViewController, UIWebViewDelegate {
     }
     
     func webViewDidFinishLoad(_ webView: UIWebView) {
-        stopLoader()
+        stopActivityIndicator()
     }
     
     func webView(_ webView: UIWebView, didFailLoadWithError error: Error) {
-        stopLoader()
+        stopActivityIndicator()
     }
     
     @IBAction func didPressCloseButton(_ sender: UIButton) {
@@ -56,11 +56,11 @@ class ToneActionViewController: UIViewController, UIWebViewDelegate {
     func stopLoadingRequest() {
         if self.toneActionWebView.isLoading {
             self.toneActionWebView.stopLoading()
-            stopLoader()
+            stopActivityIndicator()
         }
     }
     
-    func stopLoader(){
+    func stopActivityIndicator(){
         activityIndicator.stopAnimating()
         self.activityIndicator.isHidden = true
         self.spinnerView.isHidden = true
