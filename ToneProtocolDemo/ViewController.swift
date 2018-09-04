@@ -32,7 +32,7 @@ class ViewController: UIViewController, LGToneManagerDelegate {
     func initToneManager(){
         LGToneManager.shared().delegate = self
         LGToneManager.shared().handleNotifications(inFramework: false)
-        LGToneManager.shared().shouldIgnoreSameSequence(inFramework: false)
+        LGToneManager.shared().shouldIgnoreSameSequence(inFramework: true)
         let clientName: String = Bundle.main.infoDictionary![kClientName] as! String
         let hostName: String = Bundle.main.infoDictionary![kHostName] as! String
         LGToneManager.shared().configureManagerClientName(clientName, hostName: hostName)
