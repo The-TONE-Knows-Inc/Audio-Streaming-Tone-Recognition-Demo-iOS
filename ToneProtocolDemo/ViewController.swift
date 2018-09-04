@@ -31,9 +31,8 @@ class ViewController: UIViewController, LGToneManagerDelegate {
     
     func initToneManager(){
         LGToneManager.shared().delegate = self
-        
         LGToneManager.shared().handleNotifications(inFramework: false)
-        LGToneManager.shared().shouldIgnoreSameSequence(inFramework: false)
+        LGToneManager.shared().shouldIgnoreSameSequence(inFramework: true)
         let clientName: String = Bundle.main.infoDictionary![kClientName] as! String
         let hostName: String = Bundle.main.infoDictionary![kHostName] as! String
         LGToneManager.shared().configureManagerClientName(clientName, hostName: hostName)
@@ -58,7 +57,25 @@ class ViewController: UIViewController, LGToneManagerDelegate {
     func actionListUpdated(_ actions: [Any]!) {
         // Moves to ToneActionViewController where it displays the image in URL
         sortedActions = actions as NSArray
-        self.performSegue(withIdentifier: "HomeToneActionSegue", sender: self)
+        let action = sortedActions[0] as! LGAction
+        // If Action URL is email then open email directly
+        if action.actionType == LGActionType.actionTypeEmail {
+            if let url = URL(string: action.actionURL) {
+                if #available(iOS 10.0, *) {
+                    UIApplication.shared.open(url)
+                } else {
+                    UIApplication.shared.openURL(url)
+                }
+            }
+        }
+        else {
+            if self.presentedViewController is ToneActionViewController {
+                (self.presentedViewController as! ToneActionViewController).loadUrl(action: action)
+            }
+            else {
+                self.performSegue(withIdentifier: "HomeToneActionSegue", sender: self)
+            }
+        }
     }
     
     func notificationTapped() {

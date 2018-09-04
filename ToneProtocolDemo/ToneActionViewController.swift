@@ -10,36 +10,60 @@ import UIKit
 import ToneFramework
 
 class ToneActionViewController: UIViewController, UIWebViewDelegate {
-    
+
     @IBOutlet weak var toneActionWebView: UIWebView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var closeButton: UIButton!
+    @IBOutlet weak var spinnerView: UIView!
     var action: LGAction = LGAction()
-    
-    var spinner: UIView = UIView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Loads url in webview
-        let url = URL(string: action.actionURL)
-        let request = URLRequest(url: url! as URL)
-        self.toneActionWebView.delegate = self
-        self.toneActionWebView.scalesPageToFit = true
-        self.toneActionWebView.loadRequest(request)
-        if action.actionType != LGActionType.actionTypeEmail {
-            spinner = UIViewController.displaySpinner(onView: self.view)
-        }
+        toneActionWebView.delegate = self
+        activityIndicator.activityIndicatorViewStyle = .gray
+        loadUrl(action: action)
+    }
+    
+    func webViewDidStartLoad(_ webView: UIWebView) {
+        self.activityIndicator.startAnimating()
+        self.activityIndicator.isHidden = false
+        self.spinnerView.isHidden = false
+        self.closeButton.isEnabled = false
     }
     
     func webViewDidFinishLoad(_ webView: UIWebView) {
-        UIViewController.removeSpinner(spinner: spinner)
+        stopActivityIndicator()
     }
     
     func webView(_ webView: UIWebView, didFailLoadWithError error: Error) {
-        UIViewController.removeSpinner(spinner: spinner)
+        stopActivityIndicator()
     }
     
     @IBAction func didPressCloseButton(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
     }
     
+    func loadUrl(action : LGAction) {
+        // Loads url in webview
+        let url = URL(string: action.actionURL)
+        let request = URLRequest(url: url! as URL)
+        self.toneActionWebView.delegate = self
+        self.toneActionWebView.scalesPageToFit = true
+        stopLoadingRequest()
+        self.toneActionWebView.loadRequest(request)
+    }
+    
+    func stopLoadingRequest() {
+        if self.toneActionWebView.isLoading {
+            self.toneActionWebView.stopLoading()
+            stopActivityIndicator()
+        }
+    }
+    
+    func stopActivityIndicator(){
+        activityIndicator.stopAnimating()
+        self.activityIndicator.isHidden = true
+        self.spinnerView.isHidden = true
+        self.closeButton.isEnabled = true
+    }
 }
