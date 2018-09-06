@@ -58,10 +58,10 @@ typedef void (^OnPlayerReadyBlock)(AVPlayer*, NSError *);
 - (void)configureManagerClientName:(NSString*)clientName hostName:(NSString*)hostName;
 
 /**
- *  Prepare AVPlayer by initialising it with the passed URL and adding tap to it to recognise tones from the played audio stream
+ *  Prepare AVPlayer by initialising it with the URL and adding a tap to recognize tones from the played audio stream
  *
- *  @param url Remote audio resource URL
- *  @param onPlayerReady callback block that returns AVPlayer intance when ready.
+ *  @param url audio resource URL
+ *  @param onPlayerReady returns AVPlayer intance when ready.
  */
 - (void) prepareAVPlayerForURL:(NSURL*)url onPlayerReady:(OnPlayerReadyBlock)playerReady;
 
@@ -74,8 +74,8 @@ typedef void (^OnPlayerReadyBlock)(AVPlayer*, NSError *);
 - (void)handleNotificationsInFramework:(BOOL)value;
 
 /**
- *  whether the framework should ignore the same sequence within 30 seconds.
- *  if set to yes, the action will be notified to user after 30 seconds when the same sequence is detected.
+ *  whether the framework should ignore the same sequence within 15 seconds.
+ *  if set to yes, the action will be notified to user after 15 seconds when the same sequence is detected.
  *  if set to no, the action will be notified as soon as the sequence is detected
  *
  *  default is yes.
@@ -85,12 +85,12 @@ typedef void (^OnPlayerReadyBlock)(AVPlayer*, NSError *);
 - (void)shouldIgnoreSameSequenceInFramework:(BOOL)value;
 
 /**
- *  Start the tone recognition
+ *  Start the tone recognition through mic input
  */
 - (void)start;
 
 /**
- *  Stop the tone recognition
+ *  Stop the tone recognition through mic input
  */
 - (void)stop;
 

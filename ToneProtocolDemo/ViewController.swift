@@ -19,23 +19,22 @@ class ViewController: UIViewController, LGToneManagerDelegate {
     let kClientName: String = "TONE_PROTOCOL_CLIENT_NAME"
     let kHostName: String = "TONE_PROTOCOL_HOST_NAME"
     var player: AVPlayer?
-    let defaultFeedURL = URL(string: "http://192.168.10.21:8888/tone/AirKast_SubwayRadio_15K_XXXX_ZZZZ_R22_W_PreRoll_44.1k.mp3")
+    let feedURL1: URL = URL(string: "http://192.168.11.149:8888/tone/AirKast_SubwayRadio_15K_XXXX_ZZZZ_R22_W_PreRoll_44.1k.mp3")!
+    let feedURL2: URL = URL(string: "http://192.168.11.149:8888/tone/ZZZZ_XXXX_DDDD___ZZZZ___XXXX___DDDD_44.1k_mixed.mp3")!
     
     @IBOutlet weak var buttonPlayPause: UIButton!
+    @IBOutlet weak var buttonPrevious: UIButton!
+    @IBOutlet weak var buttonNext: UIButton!
+    @IBOutlet weak var labelFeedName: UILabel!
+    @IBOutlet weak var sliderVolume: UISlider!
+    @IBOutlet weak var wrapperView: UIView!
     
     enum PlayerState {
         case playing
         case stopped
     }
     
-    enum AudioReceiverType {
-        case mic
-        case audioStream
-    }
-    
     var playerState = PlayerState.stopped
-    let audioReceiverType = AudioReceiverType.audioStream
-    var loopAudio: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,50 +59,56 @@ class ViewController: UIViewController, LGToneManagerDelegate {
         
         // Tone Manager initialization
         initToneManager()
+        
+        //Init player
+        self.labelFeedName.text = "Feed 1"
+        self.buttonPrevious.isEnabled = false
+        self.buttonNext.isEnabled = true
+        self.initPlayer(url: feedURL1, shouldPlayAfterInit: false)
+        
+        //Enable playing audio in background
+        do {
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback, with: .mixWithOthers)
+            print("Playback OK")
+            try AVAudioSession.sharedInstance().setActive(true)
+            print("Session is Active")
+        } catch {
+            print(error)
+        }
     }
     
     func initToneManager(){
         LGToneManager.shared().delegate = self
         
         LGToneManager.shared().handleNotifications(inFramework: false)
-        LGToneManager.shared().shouldIgnoreSameSequence(inFramework: false)
+        LGToneManager.shared().shouldIgnoreSameSequence(inFramework: true)
         let clientName: String = Bundle.main.infoDictionary![kClientName] as! String
         let hostName: String = Bundle.main.infoDictionary![kHostName] as! String
         LGToneManager.shared().configureManagerClientName(clientName, hostName: hostName)
     }
     
-    func playAudio(url: URL){
-        if(audioReceiverType == .audioStream){
-            //LGToneManager prepares the player instance by adding tap to it to recognise the tones directly using audio stream buffer
-            LGToneManager.shared().prepareAVPlayer(for: url, onPlayerReady: { (avPlayer, error) in
-                if let _ = avPlayer{
-                    self.player = avPlayer
-                    self.player?.play()
-                    
-                    NotificationCenter.default.addObserver(forName: .AVPlayerItemDidPlayToEndTime, object: self.player?.currentItem, queue: .main) { _ in
-                        if(self.loopAudio){ //play again from start
-                            self.player?.seek(to: kCMTimeZero)
-                            self.player?.play()
-                        }else{ //stop audio
-                            self.pauseAudio()
-                        }
-                    }
-                    
+    func initPlayer(url: URL, shouldPlayAfterInit: Bool) {
+        
+        //LGToneManager prepares the player instance by adding tap to it to recognise the tones directly using audio stream buffer
+        LGToneManager.shared().prepareAVPlayer(for: url, onPlayerReady: { (avPlayer, error) in
+            if let _ = avPlayer{
+                self.player = avPlayer
+                self.sliderVolume.value = (self.player?.volume)!
+                if(shouldPlayAfterInit){
+                    self.playAudio()
                 }
-            })
-        }else{ //audioReceiverType == .mic
-            //streaming audio file and starting to listen through the mic in viewWillAppear
-            let playerItem:AVPlayerItem = AVPlayerItem(url: url)
-            self.player = AVPlayer(playerItem: playerItem)
-            self.player?.play()
-            
-            if(self.loopAudio){
                 NotificationCenter.default.addObserver(forName: .AVPlayerItemDidPlayToEndTime, object: self.player?.currentItem, queue: .main) { _ in
+                    self.pauseAudio()
                     self.player?.seek(to: kCMTimeZero)
-                    self.player?.play()
                 }
             }
-        }
+        })
+    }
+    
+    func playAudio(){
+        playerState = .playing
+        self.buttonPlayPause.setImage(UIImage(named: "stop"), for: UIControlState.normal)
+        self.player?.play()
     }
     
     func pauseAudio(){
@@ -116,22 +121,33 @@ class ViewController: UIViewController, LGToneManagerDelegate {
         if playerState == .playing{ //Tapped stop/pause button
             pauseAudio()
         }else{ //Tapped play button
-            playerState = .playing
-            sender.setImage(UIImage(named: "stop"), for: UIControlState.normal)
-            playAudio(url: defaultFeedURL!)
+            playAudio()
         }
     }
+    
+    @IBAction func previousButtonTapped(_ sender: UIButton) {
+        self.labelFeedName.text = "Feed 1"
+        self.buttonPrevious.isEnabled = false
+        self.buttonNext.isEnabled = true
+        self.initPlayer(url: feedURL1, shouldPlayAfterInit: true)
+    }
+    
+    @IBAction func nextButtonTapped(_ sender: UIButton) {
+        self.labelFeedName.text = "Feed 2"
+        self.buttonNext.isEnabled = false
+        self.buttonPrevious.isEnabled = true
+        self.initPlayer(url: feedURL2, shouldPlayAfterInit: true)
+    }
+    
+    @IBAction func volumeSliderAction(_ sender: UISlider) {
+        if let _ = self.player {
+            self.player?.volume = sliderVolume.value
+        }
+    }
+    
     
     @IBAction func didPressMenuButton(_ sender: UIBarButtonItem) {
         slideMenuController()?.openLeft()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        // Starts recording and listening for tone
-        if(audioReceiverType == AudioReceiverType.mic){
-            LGToneManager.shared().start()
-        }
     }
     
     override func viewDidAppear(_ animated: Bool) {

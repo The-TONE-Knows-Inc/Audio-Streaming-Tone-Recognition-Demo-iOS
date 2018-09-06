@@ -11,6 +11,7 @@ typedef NS_ENUM(NSInteger, LGActionType){
     kActionTypeNone,
     kActionTypeUrl,
     kActionTypeImage,
+    kActionTypeEmail,
 };
 
 @interface LGAction : NSObject
