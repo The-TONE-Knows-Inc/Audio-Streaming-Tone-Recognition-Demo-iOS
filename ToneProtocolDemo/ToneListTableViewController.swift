@@ -49,6 +49,8 @@ class ToneListTableViewController: UITableViewController {
         }
         else if action.actionType == LGActionType.actionTypeUrl {
             cell.actionLinkText.text = "Open Link"
+        }else if action.actionType == LGActionType.actionTypeEmail {
+            cell.actionLinkText.text = "Open Email"
         }
         return cell
     }
@@ -56,8 +58,18 @@ class ToneListTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedAction = sortedActions.object(at: indexPath.row) as! LGAction
         // Displays image in web view and add close button
-        print(selectedAction.actionURL)
-        self.performSegue(withIdentifier: "ToneListToneActionSegue", sender: self)
+        if selectedAction.actionType == LGActionType.actionTypeEmail {
+            if let url = URL(string: selectedAction.actionURL) {
+                if #available(iOS 10.0, *) {
+                    UIApplication.shared.open(url)
+                } else {
+                    UIApplication.shared.openURL(url)
+                }
+            }
+        }
+        else {
+            self.performSegue(withIdentifier: "ToneListToneActionSegue", sender: self)
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

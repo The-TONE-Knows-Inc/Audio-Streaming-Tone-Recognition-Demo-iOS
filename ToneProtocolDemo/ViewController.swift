@@ -153,7 +153,25 @@ class ViewController: UIViewController, LGToneManagerDelegate {
     func actionListUpdated(_ actions: [Any]!) {
         // Moves to ToneActionViewController where it displays the image in URL
         sortedActions = actions as NSArray
-        self.performSegue(withIdentifier: "HomeToneActionSegue", sender: self)
+        let action = sortedActions[0] as! LGAction
+        // If Action URL is email then open email directly
+        if action.actionType == LGActionType.actionTypeEmail {
+            if let url = URL(string: action.actionURL) {
+                if #available(iOS 10.0, *) {
+                    UIApplication.shared.open(url)
+                } else {
+                    UIApplication.shared.openURL(url)
+                }
+            }
+        }
+        else {
+            if self.presentedViewController is ToneActionViewController {
+                (self.presentedViewController as! ToneActionViewController).loadUrl(action: action)
+            }
+            else {
+                self.performSegue(withIdentifier: "HomeToneActionSegue", sender: self)
+            }
+        }
     }
     
     func notificationTapped() {
