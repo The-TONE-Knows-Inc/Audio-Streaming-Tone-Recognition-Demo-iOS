@@ -26,7 +26,6 @@ class ViewController: UIViewController, LGToneManagerDelegate {
     @IBOutlet weak var buttonPrevious: UIButton!
     @IBOutlet weak var buttonNext: UIButton!
     @IBOutlet weak var labelFeedName: UILabel!
-    @IBOutlet weak var sliderVolume: UISlider!
     @IBOutlet weak var wrapperView: UIView!
     
     enum PlayerState {
@@ -57,6 +56,10 @@ class ViewController: UIViewController, LGToneManagerDelegate {
         //assign button to navigationbar
         self.navigationItem.leftBarButtonItem = barButton
         
+        //Add system volume slider
+        let volumeView = MPVolumeView(frame: self.wrapperView.bounds)
+        self.wrapperView.addSubview(volumeView)
+        
         // Tone Manager initialization
         initToneManager()
         
@@ -79,7 +82,6 @@ class ViewController: UIViewController, LGToneManagerDelegate {
     
     func initToneManager(){
         LGToneManager.shared().delegate = self
-        
         LGToneManager.shared().handleNotifications(inFramework: false)
         LGToneManager.shared().shouldIgnoreSameSequence(inFramework: true)
         let clientName: String = Bundle.main.infoDictionary![kClientName] as! String
@@ -93,7 +95,6 @@ class ViewController: UIViewController, LGToneManagerDelegate {
         LGToneManager.shared().prepareAVPlayer(for: url, onPlayerReady: { (avPlayer, error) in
             if let _ = avPlayer{
                 self.player = avPlayer
-                self.sliderVolume.value = (self.player?.volume)!
                 if(shouldPlayAfterInit){
                     self.playAudio()
                 }
@@ -138,13 +139,6 @@ class ViewController: UIViewController, LGToneManagerDelegate {
         self.buttonPrevious.isEnabled = true
         self.initPlayer(url: feedURL2, shouldPlayAfterInit: true)
     }
-    
-    @IBAction func volumeSliderAction(_ sender: UISlider) {
-        if let _ = self.player {
-            self.player?.volume = sliderVolume.value
-        }
-    }
-    
     
     @IBAction func didPressMenuButton(_ sender: UIBarButtonItem) {
         slideMenuController()?.openLeft()
