@@ -27,6 +27,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.makeKeyAndVisible()
         
         let result:Bool = LGToneManager.shared().application(application, didFinishLaunchingWithOptions: launchOptions)
+        
+        //Change status bar font color to be visible over black background
+        UINavigationBar.appearance().barStyle = .blackOpaque
+        
         return result
     }
 
