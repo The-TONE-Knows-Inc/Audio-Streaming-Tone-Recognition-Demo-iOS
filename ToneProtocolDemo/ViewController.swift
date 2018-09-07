@@ -107,6 +107,10 @@ class ViewController: UIViewController, LGToneManagerDelegate {
         })
     }
     
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
     func playAudio(){
         playerState = .playing
         self.buttonPlayPause.setImage(UIImage(named: "stop"), for: UIControlState.normal)
