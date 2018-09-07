@@ -10,6 +10,7 @@ import UIKit
 import ToneFramework
 import SwiftIcons
 import SlideMenuControllerSwift
+import MediaPlayer
 
 class ViewController: UIViewController, LGToneManagerDelegate {
     
