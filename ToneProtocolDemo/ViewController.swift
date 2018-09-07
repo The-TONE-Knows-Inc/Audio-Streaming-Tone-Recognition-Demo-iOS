@@ -39,11 +39,6 @@ class ViewController: UIViewController, LGToneManagerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationController?.navigationBar.barTintColor = UIColor.black
-        
-        // Sets menu icon
-        //self.navigationItem.leftBarButtonItem?.setIcon(icon: .fontAwesome(.bars), iconSize: 25, color: UIColor.white)
-        
         //create a new button
         let button = UIButton.init(type: .custom)
         //set image for button
