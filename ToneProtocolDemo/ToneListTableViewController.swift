@@ -21,12 +21,29 @@ class ToneListTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //create a new button
+        let button = UIButton.init(type: .custom)
+        //set image for button
+        button.setImage(UIImage(named: "icon_menu.png"), for: UIControlState.normal)
+        //add function for button
+        button.addTarget(self, action: #selector(ViewController.didPressMenuButton), for: UIControlEvents.touchUpInside)
+        //set frame
+        button.frame = CGRect(x: 0, y: 0, width: 25, height: 25)
+        
+        let barButton = UIBarButtonItem(customView: button)
+        //assign button to navigationbar
+        self.navigationItem.leftBarButtonItem = barButton
+        
         // Sets menu icon
         self.navigationItem.leftBarButtonItem?.setIcon(icon: .fontAwesome(.bars), iconSize: 25)
-        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         // Fetches actions
         sortedActions = LGToneManager.shared().getSortedActions(false) as NSArray
     }
+    
     @IBAction func didPressMenuButton(_ sender: UIBarButtonItem) {
         slideMenuController()?.openLeft()
     }
