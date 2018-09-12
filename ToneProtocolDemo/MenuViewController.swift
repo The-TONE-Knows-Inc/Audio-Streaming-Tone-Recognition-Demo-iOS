@@ -9,8 +9,6 @@
 import UIKit
 
 class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-
-    var viewControllers = ["HomeViewController", "ToneListTableViewController"]
     
     var menuItemTitles = ["Home", "Inbox"]
     let kRowHeightNormal:CGFloat = 60
@@ -28,7 +26,7 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return viewControllers.count
+        return menuItemTitles.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -38,9 +36,11 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let viewController =  storyboard.instantiateViewController(withIdentifier: viewControllers[indexPath.row])
-        self.slideMenuController()?.changeMainViewController(viewController, close: true)
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        if let viewController = (appDelegate.navigationProvider?.viewControllerForMenuItem(menuItem: menuItemForIndex(index: indexPath.row))){
+            self.slideMenuController()?.changeMainViewController(viewController, close: true)
+        }
+        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -49,6 +49,17 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return kSectionHeaderHeightNormal
+    }
+}
+
+func menuItemForIndex(index: Int)->MenuItem{
+    switch index {
+        case 0:
+            return .home
+        case 1:
+            return .inbox
+        default:
+            return .home
     }
 }
 

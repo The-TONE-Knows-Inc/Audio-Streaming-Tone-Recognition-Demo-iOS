@@ -14,15 +14,18 @@ import SlideMenuControllerSwift
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var navigationProvider: NavigationProvider?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Initializes view controllers / navigation controllers
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-
-        let homeViewController =  storyboard.instantiateViewController(withIdentifier: "HomeViewController")
+        
+        navigationProvider = NavigationProvider()
+        let homeViewController =  navigationProvider?.viewControllerForMenuItem(menuItem: .home)
+        
         let menuViewController = storyboard.instantiateViewController(withIdentifier: "MenuViewController")
 
-        let slideMenuController = SlideMenuController(mainViewController: homeViewController, leftMenuViewController: menuViewController)
+        let slideMenuController = SlideMenuController(mainViewController: homeViewController!, leftMenuViewController: menuViewController)
         self.window?.rootViewController = slideMenuController
         self.window?.makeKeyAndVisible()
         

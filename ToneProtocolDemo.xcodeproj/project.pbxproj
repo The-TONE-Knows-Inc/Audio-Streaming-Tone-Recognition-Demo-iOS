@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1429F23D2147FA13005FA587 /* NavigationProviderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1429F23C2147FA13005FA587 /* NavigationProviderProtocol.swift */; };
+		1429F23F2147FDC7005FA587 /* NavigationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1429F23E2147FDC7005FA587 /* NavigationProvider.swift */; };
 		148BCE2121425D8000020F71 /* ToneFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 148BCE2021425D8000020F71 /* ToneFramework.framework */; };
 		148BCE2221425D8400020F71 /* ToneFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 148BCE2021425D8000020F71 /* ToneFramework.framework */; };
 		148BCE2321425D8400020F71 /* ToneFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 148BCE2021425D8000020F71 /* ToneFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -57,6 +59,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1429F23C2147FA13005FA587 /* NavigationProviderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationProviderProtocol.swift; sourceTree = "<group>"; };
+		1429F23E2147FDC7005FA587 /* NavigationProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationProvider.swift; sourceTree = "<group>"; };
 		148BCE2021425D8000020F71 /* ToneFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ToneFramework.framework; sourceTree = "<group>"; };
 		3EB62203786335FB96925670 /* Pods-ToneProtocolDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToneProtocolDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ToneProtocolDemo/Pods-ToneProtocolDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		49A07857C3107C24060992AF /* Pods_ToneProtocolDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ToneProtocolDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -150,6 +154,8 @@
 				53F049DF20C90C0500370E1D /* Assets.xcassets */,
 				53F049E120C90C0500370E1D /* LaunchScreen.storyboard */,
 				53F049E420C90C0500370E1D /* Info.plist */,
+				1429F23C2147FA13005FA587 /* NavigationProviderProtocol.swift */,
+				1429F23E2147FDC7005FA587 /* NavigationProvider.swift */,
 			);
 			path = ToneProtocolDemo;
 			sourceTree = "<group>";
@@ -413,10 +419,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1429F23D2147FA13005FA587 /* NavigationProviderProtocol.swift in Sources */,
 				53F6DAF020C969B700C9C291 /* ToneActionViewController.swift in Sources */,
 				53391E0820CA9E1100B2D3DA /* MenuViewController.swift in Sources */,
 				53F04A0920C913C300370E1D /* ToneListTableViewController.swift in Sources */,
 				53F049DB20C90C0300370E1D /* ViewController.swift in Sources */,
+				1429F23F2147FDC7005FA587 /* NavigationProvider.swift in Sources */,
 				53F049D920C90C0300370E1D /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
