@@ -66,6 +66,11 @@ typedef void (^OnPlayerReadyBlock)(AVPlayer*, NSError *);
 - (void) prepareAVPlayerForURL:(NSURL*)url onPlayerReady:(OnPlayerReadyBlock)playerReady;
 
 /**
+ *  Stop the tone recognition
+ */
+- (void) stopAudioStreamToneRecognition;
+
+/**
  *  if set to YES and when a notification is created about an action while app is in background, The framework will process
  *  the action, if set to false, the client will be notified by LGToneManagerDelegate.notificationTapped
  *
