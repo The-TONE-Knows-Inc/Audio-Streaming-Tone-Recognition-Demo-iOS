@@ -20,8 +20,9 @@ class ViewController: UIViewController, LGToneManagerDelegate {
     let kClientName: String = "TONE_PROTOCOL_CLIENT_NAME"
     let kHostName: String = "TONE_PROTOCOL_HOST_NAME"
     var player: AVPlayer?
-    let feedURL1: URL = URL(string: "http://192.168.11.149:8888/tone/AirKast_SubwayRadio_15K_XXXX_ZZZZ_R22_W_PreRoll_44.1k.mp3")!
+    var feedURL1: URL = URL(string: "https://www.tonedemo.com/Airkast_demo_sample_audio.mp3")!
     let feedURL2: URL = URL(string: "http://192.168.11.149:8888/tone/ZZZZ_XXXX_DDDD___ZZZZ___XXXX___DDDD_44.1k_mixed.mp3")!
+    var shouldPlayAfterInit: Bool = false
     
     @IBOutlet weak var buttonPlayPause: UIButton!
     @IBOutlet weak var buttonPrevious: UIButton!
@@ -62,8 +63,9 @@ class ViewController: UIViewController, LGToneManagerDelegate {
         //Init player
         self.labelFeedName.text = "Feed 1"
         self.buttonPrevious.isEnabled = false
-        self.buttonNext.isEnabled = true
-        self.initPlayer(url: feedURL1, shouldPlayAfterInit: false)
+//        self.buttonNext.isEnabled = true
+        self.buttonNext.isEnabled = false //Disabling the next button since we are currently using only one audio feed
+        self.initPlayer(url: feedURL1)
         
         //Enable playing audio in background
         do {
@@ -85,13 +87,13 @@ class ViewController: UIViewController, LGToneManagerDelegate {
         LGToneManager.shared().configureManagerClientName(clientName, hostName: hostName)
     }
     
-    func initPlayer(url: URL, shouldPlayAfterInit: Bool) {
+    func initPlayer(url: URL) {
         
         //LGToneManager prepares the player instance by adding tap to it to recognise the tones directly using audio stream buffer
         LGToneManager.shared().prepareAVPlayer(for: url, onPlayerReady: { (avPlayer, error) in
             if let _ = avPlayer{
                 self.player = avPlayer
-                if(shouldPlayAfterInit){
+                if(self.shouldPlayAfterInit){
                     self.playAudio()
                 }
                 NotificationCenter.default.addObserver(forName: .AVPlayerItemDidPlayToEndTime, object: self.player?.currentItem, queue: .main) { _ in
@@ -107,12 +109,14 @@ class ViewController: UIViewController, LGToneManagerDelegate {
     }
     
     func playAudio(){
+        self.shouldPlayAfterInit = true
         playerState = .playing
         self.buttonPlayPause.setImage(UIImage(named: "stop"), for: UIControlState.normal)
         self.player?.play()
     }
     
     func pauseAudio(){
+        self.shouldPlayAfterInit = false
         playerState = .stopped
         buttonPlayPause.setImage(UIImage(named: "play"), for: UIControlState.normal)
         self.player?.pause()
@@ -127,17 +131,22 @@ class ViewController: UIViewController, LGToneManagerDelegate {
     }
     
     @IBAction func previousButtonTapped(_ sender: UIButton) {
+        self.player?.pause()
+        self.player = nil
         self.labelFeedName.text = "Feed 1"
         self.buttonPrevious.isEnabled = false
         self.buttonNext.isEnabled = true
-        self.initPlayer(url: feedURL1, shouldPlayAfterInit: true)
+        self.initPlayer(url: feedURL1)
     }
     
     @IBAction func nextButtonTapped(_ sender: UIButton) {
+        self.player?.pause()
+        self.player = nil
         self.labelFeedName.text = "Feed 2"
         self.buttonNext.isEnabled = false
         self.buttonPrevious.isEnabled = true
-        self.initPlayer(url: feedURL2, shouldPlayAfterInit: true)
+        self.initPlayer(url: feedURL2)
+        
     }
     
     @IBAction func didPressMenuButton(_ sender: UIBarButtonItem) {
