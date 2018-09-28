@@ -40,6 +40,7 @@ class ViewController: UIViewController, LGToneManagerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        /*
         //create a new button
         let button = UIButton.init(type: .custom)
         //set image for button
@@ -52,6 +53,10 @@ class ViewController: UIViewController, LGToneManagerDelegate {
         let barButton = UIBarButtonItem(customView: button)
         //assign button to navigationbar
         self.navigationItem.leftBarButtonItem = barButton
+        */
+        
+        // Sets menu icon
+        self.navigationItem.leftBarButtonItem?.setIcon(icon: .fontAwesome(.bars), iconSize: 25, color: UIColor.white)
         
         //Add system volume slider
         let volumeView = MPVolumeView(frame: self.wrapperView.bounds)

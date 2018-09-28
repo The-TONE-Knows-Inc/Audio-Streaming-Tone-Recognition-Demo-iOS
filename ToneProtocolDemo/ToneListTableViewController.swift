@@ -21,6 +21,7 @@ class ToneListTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        /*
         //create a new button
         let button = UIButton.init(type: .custom)
         //set image for button
@@ -33,9 +34,10 @@ class ToneListTableViewController: UITableViewController {
         let barButton = UIBarButtonItem(customView: button)
         //assign button to navigationbar
         self.navigationItem.leftBarButtonItem = barButton
+        */
         
         // Sets menu icon
-        self.navigationItem.leftBarButtonItem?.setIcon(icon: .fontAwesome(.bars), iconSize: 25)
+        self.navigationItem.leftBarButtonItem?.setIcon(icon: .fontAwesome(.bars), iconSize: 25, color: UIColor.white)
     }
     
     override func viewWillAppear(_ animated: Bool) {
